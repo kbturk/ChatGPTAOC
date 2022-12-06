@@ -1,0 +1,38 @@
+Day 2 Prompt - 12/6/22
+---
+"please write me a python program to solve the following problem: <copy paste Day 2>"
+I received a program that produced the wrong answer and the input was hardcoded. ChatGPT described the program it wrote and instructed that I hardcode the 'strategy' on line 45..
+---
+"This is incorrect. the opponent's choice should not be evaluated in SCORES and p2 should be a choice of X Y or Z not A B or C"
+I recieved a program with the correct SCORES calculation but still the wrong winner calculation in round_outcome
+---
+"This is still incorrect. in 'round_outcome', p1 (the player) should win if... P1 = X and  P2 = C, P1 = Y and P2 = A, or P1 = Z and P2 = B"
+I recieved a program with the correct 'winner', but will never return a draw because p1 will never equal p2.
+---
+"this is still incorrect. In round_outcome, p1 == p2 will never be true because p1 can be X,Y, or Z and p2 can be A,B or C. the round is a draw if p1,p2 = (X,A), (Y,B) or (Z,C)"
+I recieved a program that gave the correct solution for part 1. I changed the hard coded input to read a file from sys.stdin. My change is goofy but I wanted to change the program as little as possible.
+I also noticed every iteration where I said it was incorrect it replied, "You are correct" and then restated whatever I said but parsed in a way that chatGPT could process easier.
+---
+I pasted in part two and it gave me the same program from part 1 and bullshitted me that it did the thing I asked it to.
+This is incorrect and at this point it would be easier for me to write part 2 myself then try to explain to it what it needs to do.
+Also, because this program feeds the entire chat into an OpenAI call it's getting very slow... here's me fighting this thing for another hour:
+---
+"This is incorrect. This program does not take into account the prescribed round outcome. X,Y,Z no longer designates rock, paper, or scissors but means the player should win, draw, or lose the round. Please rewrite the program doing this."
+program gets cut off so...
+---
+"please continue"
+---
+"this is close but the hard coded numbers for round_score are wrong. The SCORE needs to evaluate what the opponent chose. A:1, B:2, C:3"
+---
+"please continue"
+---
+it's just not getting the right answer. I've over constrained helping it solve part 1 and now it can't get part 2... restarting thread.
+---
+I manipulated the prompt for just part two information. The output described the rules of the game, followed by some very bad code that didn't include what to select in the case of a draw.
+---
+"you forgot to add a shape choice based on outcome == 'Y'"
+
+You are correct. In the code above, I forgot to add a shape choice for when the outcome of the round is a draw (Y).
+Here is an updated version of the code that includes a shape choice for when the outcome is a draw:
+
+I was provided a program with the correct code but like other AOC solutions, I needed to write some code to parse the input and I went ahead and declared some variables at the beginning of the if statement.

@@ -4,6 +4,7 @@ strategy_guide = [tuple(l.strip().split(' ')) for l in sys.stdin]
 number_of_rounds = len(strategy_guide)
 my_shape = None
 score = 0
+
 # Initialize variables
 total_score = 0
 opponent_shape = ''
@@ -20,16 +21,22 @@ for i in range(number_of_rounds):
             my_shape = 'B'
         elif outcome == 'X':
             my_shape = 'C'
+        elif outcome == 'Y':
+            my_shape = 'A'
     elif opponent_shape == 'B':
         if outcome == 'Z':
             my_shape = 'C'
         elif outcome == 'X':
             my_shape = 'A'
+        elif outcome == 'Y':
+            my_shape = 'B'
     elif opponent_shape == 'C':
         if outcome == 'Z':
             my_shape = 'A'
         elif outcome == 'X':
             my_shape = 'B'
+        elif outcome == 'Y':
+            my_shape = 'C'
 
     # Calculate your score for the round
     if my_shape == 'A':
@@ -49,4 +56,3 @@ for i in range(number_of_rounds):
 
 # Print your total score
 print(total_score)
-
