@@ -2,10 +2,10 @@
 
 
 This year for AOC, I will be running the Advent of Code puzzles through GPT, racing
-a human to see which of us can complete the puzzle first. So far:
-
+a human to see who can complete the puzzle first. This race began on Day 6. So far:
+      Puzzle Completed:
 Day 1 ☑️☑️  
-Day 2 ☑️☑️  
+Day 2 ☑️☑️ ChatGPT had a lot of problems solving this puzzle
 Day 3  
 Day 4  
 Day 5 ☑️☑️  
