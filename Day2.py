@@ -1,8 +1,5 @@
-# Create a dictionary that maps from choices to their corresponding scores
+# Create a dictionary that maps from the player's choices to their corresponding scores
 SCORES = {
-    "A": 1,
-    "B": 2,
-    "C": 3,
     "X": 1,
     "Y": 2,
     "Z": 3
@@ -14,10 +11,10 @@ def round_outcome(p1, p2):
     if p1 == p2:
         return 3
     # Otherwise, determine the winner
-    elif (p1 == "A" and p2 == "C") or (p1 == "B" and p2 == "A") or (p1 == "C" and p2 == "B"):
-        return 0
-    else:
+    elif (p1 == "X" and p2 == "C") or (p1 == "Y" and p2 == "X") or (p1 == "Z" and p2 == "Y"):
         return 6
+    else:
+        return 0
 
 # Define a function that calculates the total score
 def total_score(strategy):
@@ -33,7 +30,7 @@ def total_score(strategy):
         choices = round.strip().split()
 
         # Calculate the score for the round
-        round_score = SCORES[choices[0]] + SCORES[choices[1]] + round_outcome(choices[0], choices[1])
+        round_score = SCORES[choices[1]] + round_outcome(choices[1], choices[0])
 
         # Add the round score to the total score
         total_score += round_score
@@ -50,3 +47,4 @@ C Z
 
 # Calculate and print the total score
 print(total_score(strategy))
+
