@@ -1,3 +1,4 @@
+import sys
 # Create a dictionary that maps from the player's choices to their corresponding scores
 SCORES = {
     "X": 1,
@@ -8,10 +9,10 @@ SCORES = {
 # Define a function that calculates the outcome of a round
 def round_outcome(p1, p2):
     # If both players choose the same shape, the round ends in a draw
-    if p1 == p2:
+    if (p1 == "X" and p2 == "A") or (p1 == "Y" and p2 == "B") or (p1 == "Z" and p2 == "C"):
         return 3
     # Otherwise, determine the winner
-    elif (p1 == "X" and p2 == "C") or (p1 == "Y" and p2 == "X") or (p1 == "Z" and p2 == "Y"):
+    elif (p1 == "X" and p2 == "C") or (p1 == "Y" and p2 == "A") or (p1 == "Z" and p2 == "B"):
         return 6
     else:
         return 0
@@ -39,11 +40,7 @@ def total_score(strategy):
     return total_score
 
 # Define the input strategy
-strategy = """
-A Y
-B X
-C Z
-"""
+strategy = "".join([line for line in sys.stdin])
 
 # Calculate and print the total score
 print(total_score(strategy))
