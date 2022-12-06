@@ -42,6 +42,9 @@ while True:
 calories.sort(key=sum, reverse=True)
 
 # Calculate the sum of the top three elves
-top_three_calories = sum(calories[0]) + sum(calories[1]) + sum(calories[2])
+if len(calories) >= 3:
+    top_three_calories = sum(calories[0]) + sum(calories[1]) + sum(calories[2])
+else:
+    top_three_calories = 0
 
 print(top_three_calories)
