@@ -1,0 +1,10 @@
+Day 1 Prompt - 12/6/22
+---
+"please write me a python program to solve the following problem: <copy paste Day1 starting with 'The jungle...>"
+---
+after verifying part one, copy and pasted part 2.
+---
+Day 1 and 2 would not work together in a py file because the input file was consumed by part 1, making part 2 error out. I pasted the out of range error I got, it updated part 2 to return 0 if len(calories) < 3.
+---
+"write me a single python program that will solve both problems described"
+program returned a working python solution, but the user must provide either a 1 or 2 signifying the part of the program.
