@@ -1,0 +1,7 @@
+Day 3 Prompts:
+---
+"please write a python program to solve the following problem: <copy paste Day 3 part 1>"
+I recieved a program that correctly solved part 1
+---
+"update the program above with this new information: <copy paste Day 3 part 2>"
+I recieved a program that correctly solved part 2
