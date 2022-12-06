@@ -12,7 +12,6 @@ _ _   Day 4
 ☑️☑️ Day 6 Beat the human by a few minutes  
 _ _   Day 7  
 
----
 
 ### My Predictions as 12/6/22 for ChatGPT:
 
