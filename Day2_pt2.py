@@ -1,63 +1,52 @@
-# Create a dictionary that maps from the opponent's choices to their corresponding scores
-SCORES = {
-    "A": 1,
-    "B": 2,
-    "C": 3
-}
+import sys
 
-# Define a function that calculates the outcome of a round
-def round_outcome(p1, p2):
-    # If both players choose the same shape, the round ends in a draw
-    if (p1 == "X" and p2 == "A") or (p1 == "Y" and p2 == "B") or (p1 == "Z" and p2 == "C"):
-        return 3
-    # Otherwise, determine the winner
-    elif (p1 == "X" and p2 == "C") or (p1 == "Y" and p2 == "A") or (p1 == "Z" and p2 == "B"):
-        return 6
-    else:
-        return 0
+strategy_guide = [tuple(l.strip().split(' ')) for l in sys.stdin]
+number_of_rounds = len(strategy_guide)
+my_shape = None
+score = 0
+# Initialize variables
+total_score = 0
+opponent_shape = ''
+outcome = ''
 
-# Define a function that calculates the total score
-def total_score(strategy):
-    # Split the strategy into a list of rounds
-    rounds = strategy.strip().split("\n")
+# Loop for as many rounds as there are in the game
+for i in range(number_of_rounds):
+    # Read the opponent's shape and the outcome of the round from the strategy guide
+    opponent_shape, outcome = strategy_guide[i]
 
-    # Initialize the total score to 0
-    total_score = 0
+    # Choose your shape based on the opponent's shape and the outcome of the round
+    if opponent_shape == 'A':
+        if outcome == 'Z':
+            my_shape = 'B'
+        elif outcome == 'X':
+            my_shape = 'C'
+    elif opponent_shape == 'B':
+        if outcome == 'Z':
+            my_shape = 'C'
+        elif outcome == 'X':
+            my_shape = 'A'
+    elif opponent_shape == 'C':
+        if outcome == 'Z':
+            my_shape = 'A'
+        elif outcome == 'X':
+            my_shape = 'B'
 
-    # Iterate over the rounds
-    for round in rounds:
-        # Split the round into a list of choices
-        choices = round.strip().split()
+    # Calculate your score for the round
+    if my_shape == 'A':
+        score = 1
+    elif my_shape == 'B':
+        score = 2
+    elif my_shape == 'C':
+        score = 3
 
-        # Calculate the score for the round
-        round_score = 0
-        if choices[1] == "X":
-            # If the round needs to end in a loss, choose Rock
-            round_score = SCORES[choices[0]] + round_outcome("X", choices[0])
-        elif choices[1] == "Y":
-            # If the round needs to end in a draw, choose the same shape as the opponent
-            round_score = SCORES[choices[0]] + round_outcome(choices[0], choices[0])
-        elif choices[1] == "Z":
-            # If the round needs to end in a win, choose the shape that defeats the opponent's shape
-            if choices[0] == "A":
-                round_score = SCORES[choices[0]] + round_outcome("Y", choices[0])
-            elif choices[0] == "B":
-                round_score = SCORES[choices[0]] + round_outcome("X", choices[0])
-            elif choices[0] == "C":
-                round_score = SCORES[choices[0]] + round_outcome("Z", choices[0])
-        print(round, total_score)
-        # Add the round score to the total score
-        total_score += round_score
+    if outcome == 'Z':
+        score += 6
+    elif outcome == 'Y':
+        score += 3
 
-        return total_score
+    # Add your score for the round to your total score
+    total_score += score
 
-# Define the input strategy
-strategy = """
-A Y
-B X
-C Z
-"""
-
-# Calculate and print the total score
-print(total_score(strategy))
+# Print your total score
+print(total_score)
 
