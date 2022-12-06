@@ -1,10 +1,3 @@
-# Create a dictionary that maps from the player's choices to their corresponding scores
-SCORES = {
-    "X": 1,
-    "Y": 2,
-    "Z": 3
-}
-
 # Define a function that calculates the outcome of a round
 def round_outcome(p1, p2):
     # If both players choose the same shape, the round ends in a draw
@@ -30,7 +23,21 @@ def total_score(strategy):
         choices = round.strip().split()
 
         # Calculate the score for the round
-        round_score = SCORES[choices[1]] + round_outcome(choices[1], choices[0])
+        round_score = 0
+        if choices[1] == "X":
+            # If the round needs to end in a loss, choose Rock
+            round_score = 1 + round_outcome("X", choices[0])
+        elif choices[1] == "Y":
+            # If the round needs to end in a draw, choose the same shape as the opponent
+            round_score = 2 + round_outcome(choices[0], choices[0])
+        elif choices[1] == "Z":
+            # If the round needs to end in a win, choose the shape that defeats the opponent's shape
+            if choices[0] == "A":
+                round_score = 3 + round_outcome("Y", choices[0])
+            elif choices[0] == "B":
+                round_score = 3 + round_outcome("X", choices[0])
+            elif choices[0] == "C":
+                round_score = 3 + round_outcome("Z", choices[0])
 
         # Add the round score to the total score
         total_score += round_score
@@ -47,3 +54,4 @@ C Z
 
 # Calculate and print the total score
 print(total_score(strategy))
+
