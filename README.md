@@ -10,7 +10,7 @@ Day 3 ✅✅ Easy street!
 Day 4 ✅  
 Day 5 ✅✅  
 Day 6 ✅✅ Beat the human by a few minutes  
-Day 7 ❌❌ Totally face planted. This was a human-solve day.
+Day 7 ❌❌ Totally face planted. This was a human-solve day.  
 Day 8
 
 
