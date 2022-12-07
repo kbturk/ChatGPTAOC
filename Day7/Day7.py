@@ -56,7 +56,7 @@ for line in commands:
             # Update the current directory size if the current directory
             # is being changed to a child directory
             if arg != "/" and arg in dir_sizes:
-                current_dir_size = dir_sizes[arg]
+                current_dir_size += dir_sizes[arg]
 
             # Change the current directory
             current_dir = arg
@@ -89,3 +89,4 @@ for line in commands:
 
 # Print the overall sum
 print(overall_sum)
+
