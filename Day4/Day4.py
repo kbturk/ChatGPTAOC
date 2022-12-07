@@ -10,7 +10,9 @@ while True:
 # Parse the pairs into ranges
 ranges = []
 for pair in pairs:
-  ranges.append(list(map(int, pair.split('-'))))
+  for range_str in pair.split(','):
+    ranges.append(list(map(int, range_str.split('-'))))
+print(ranges)
 
 # Count the number of pairs where one range fully contains the other
 count = 0
@@ -23,3 +25,4 @@ for i in range(len(ranges)):
 
 # Print the result
 print(count)
+
