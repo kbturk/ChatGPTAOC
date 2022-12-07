@@ -58,6 +58,11 @@ for line in commands:
             if arg != "/" and arg in dir_sizes:
                 current_dir_size += dir_sizes[arg]
 
+            # Reset the current directory size if the current directory
+            # is being changed to the outermost directory
+            elif arg == "/":
+                current_dir_size = 0
+
             # Change the current directory
             current_dir = arg
 
@@ -82,6 +87,7 @@ for line in commands:
             if name not in dir_sizes:
                 dir_sizes[name] = current_dir_size
 
+            # Add the current directory's size to the overall sum
             # Add the current directory's size to the overall sum
             # if its size is at most MAX_SIZE
             if current_dir_size <= MAX_SIZE:
