@@ -19,14 +19,12 @@ for pair in pairs:
 # Keep track of the number of overlaps
 overlaps = 0
 
-# Iterate over the ranges
-for r1 in ranges:
-    for r2 in ranges:
-        # Check if the ranges have a common element
-        if r1 != r2 and any(i in r1 for i in r2):
-            # If they do, then increment the overlap count
-            overlaps += 1
+# Iterate over pairs of ranges
+for i, (r1, r2) in enumerate(zip(ranges, ranges[1:])):
+    # Check if the ranges have different indexes and a common element
+    if i != j and any(i in r1 for i in r2):
+        # If they do, then increment the overlap count
+        overlaps += 1
 
 # Print the number of overlaps
 print(overlaps)
-
