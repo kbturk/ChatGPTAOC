@@ -1,7 +1,7 @@
 ## Hello and Welcome to ~~Are you smarter than a 5th grader~~ I mean, Are you smarter than ChatGPT?
 
 
-This year for AOC, I will be running the Advent of Code puzzles through GPT, racing
+This year for AOC, I will be running the Advent of Code puzzles through ChatGPT, racing
 a human to see who can ~~complete the puzzle first~~ complete the daily puzzle. So far:  
       Puzzle Completed:  
 Day 1 ✅✅  
