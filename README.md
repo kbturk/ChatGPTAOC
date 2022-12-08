@@ -1,8 +1,8 @@
-## Hello and Welcome to ~~Are you smarter than a 5th grader~~ I mean, how good is GPT?
+## Hello and Welcome to ~~Are you smarter than a 5th grader~~ I mean, Are you smarter than ChatGPT?
 
 
 This year for AOC, I will be running the Advent of Code puzzles through GPT, racing
-a human to see who can complete the puzzle first. So far:  
+a human to see who can ~~complete the puzzle first~~ complete the daily puzzle. So far:  
       Puzzle Completed:  
 Day 1 ✅✅  
 Day 2 ✅✅ ChatGPT had a lot of problems solving this puzzle  
