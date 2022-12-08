@@ -11,7 +11,7 @@ Day 4 ✅
 Day 5 ✅✅  
 Day 6 ✅✅ Beat the human by a few minutes  
 Day 7 ❌❌ Totally face planted. This was a human-solve day.  
-Day 8
+Day 8 ❌❌ It did better than yesterday but it would go down a path I couldn't get it out of after several restarts so...  
 
 
 ### My Predictions as 12/6/22 for ChatGPT:
