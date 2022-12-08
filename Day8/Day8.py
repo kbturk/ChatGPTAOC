@@ -1,26 +1,28 @@
 # Parse the input
 heights = []
-for line in open("input.txt"):
+for line in open("input2.txt"):
   heights.append(list(map(int, line.strip())))
 
 # Count the number of visible trees in each row
 row_visibility = []
 for row in heights:
-  max_height = max(row)
   count = 0
+  max_height = -1
   for tree in row:
-    if tree == max_height:
+    if tree > max_height:
       count += 1
+      max_height = tree
   row_visibility.append(count)
 
 # Count the number of visible trees in each column
 col_visibility = []
 for col in zip(*heights):
-  max_height = max(col)
   count = 0
+  max_height = -1
   for tree in col:
-    if tree == max_height:
+    if tree > max_height:
       count += 1
+      max_height = tree
   col_visibility.append(count)
 
 # The total number of visible trees is the sum of
