@@ -18,8 +18,14 @@ for i in range(5):
     is_visible = True
     # Check if there are any other trees in the same row or column that are taller than this tree
     for k in range(5):
-      if grid[i][k] > tree or grid[k][j] > tree:
-        # If there is a taller tree in the same row or column, this tree is not visible
+      if (k < i and grid[k][j] > tree) or (k > i and grid[k][j] > tree) or (k < j and grid[i][k] > tree) or (k > j and grid[i][k] > tree):
+        # If there is a taller tree in the same row or column between the current tree and an edge, this tree is not visible
+        is_visible = False
+        break
+    # Check if there are any other trees in the same row or column when looking from right to left or bottom to top
+    for k in range(5):
+      if (k > i and grid[4-k][j] > tree) or (k < i and grid[4-k][j] > tree) or (k > j and grid[i][4-k] > tree) or (k < j and grid[i][4-k] > tree):
+        # If there is a taller tree in the same row or column when looking from right to left or bottom to top between the current tree and an edge, this tree is not visible
         is_visible = False
         break
     if is_visible:
