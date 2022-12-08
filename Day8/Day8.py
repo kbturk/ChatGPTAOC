@@ -1,56 +1,31 @@
-# Parse the input
-heights = []
-for line in open("input.txt"):
-  heights.append(list(map(int, line.strip())))
+# Read the input data
+grid = []
+for i in range(5):
+  row = input()
+  grid.append([int(x) for x in row])
 
-# Count the number of visible trees in each row
-row_visibility = []
-for row in heights:
-  count = 0
-  max_height = -1
-  for tree in row:
-    if tree > max_height:
-      count += 1
-      max_height = tree
-  row_visibility.append(count)
+# Keep track of the number of visible trees
+num_visible_trees = 0
 
-# Count the number of visible trees in each column
-col_visibility = []
-for col in zip(*heights):
-  count = 0
-  max_height = -1
-  for tree in col:
-    if tree > max_height:
-      count += 1
-      max_height = tree
-  col_visibility.append(count)
+# Iterate over each row and column of the grid
+for i in range(5):
+  for j in range(5):
+    # Check if the tree at (i, j) is visible
+    tree = grid[i][j]
+    if tree == 0:
+      # If the tree has height 0, it is not visible
+      continue
+    is_visible = True
+    # Check if there are any other trees in the same row or column that are taller than this tree
+    for k in range(5):
+      if grid[i][k] > tree or grid[k][j] > tree:
+        # If there is a taller tree in the same row or column, this tree is not visible
+        is_visible = False
+        break
+    if is_visible:
+      # If the tree is visible, increment the counter
+      num_visible_trees += 1
 
-# Count the number of visible trees in each row (reversed)
-rev_row_visibility = []
-for row in heights:
-  count = 0
-  max_height = -1
-  for tree in reversed(row):
-    if tree > max_height:
-      count += 1
-      max_height = tree
-  rev_row_visibility.append(count)
-
-# Count the number of visible trees in each column (reversed)
-rev_col_visibility = []
-for col in zip(*heights):
-  count = 0
-  max_height = -1
-  for tree in reversed(col):
-    if tree > max_height:
-      count += 1
-      max_height = tree
-  rev_col_visibility.append(count)
-
-# The total number of visible trees is the sum of
-# the number of visible trees in each row and column
-total_visibility = sum(row_visibility) + sum(col_visibility) + sum(rev_row_visibility) + sum(rev_col_visibility)
-
-# Print the result
-print(total_visibility)
+# Print the total number of visible trees
+print(num_visible_trees)
 
