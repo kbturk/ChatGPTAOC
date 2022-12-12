@@ -102,16 +102,11 @@ def main():
         for monkey in monkeys:
             while len(monkey.items) != 0:
                 monkey.items[0] %=why_does_eric_love_mod
-                #print(f'i: {i}, monkey: {monkey.name}, has: {monkey.items}')
                 worry_level = monkey.operation(monkey.items[0])
-                #print(f'worry level: {worry_level}')
-                #print(f'{monkey.items[0]*why_does_eric_love_mod} became {monkey.items[0]}')
 
                 next_monkey = monkey.throw_it(worry_level)
-                #print(f'next monkey: {next_monkey}')
 
                 monkeys[next_monkey].add_it(worry_level)
-                #print(monkeys[next_monkey].items[-1])
                 monkey.items.pop(0)
                 all_that_for_this[monkey.name] += 1
 
