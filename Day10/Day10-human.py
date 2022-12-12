@@ -5,7 +5,7 @@ from typing import List, Tuple, Set
 def cycle_signal_strength(cycle, X, sig_strength):
     if cycle == 20 or (cycle-20)%40 == 0:
         sig_strength += (cycle)*X
-        print(cycle, X, sig_strength)
+        #print(cycle, X, sig_strength)
     return sig_strength
 
 def pixel(X,cycle):
@@ -33,14 +33,13 @@ def main():
     char = '.'
 
     for item in instructions:
+        image =  append_pixel(X, cycle, image)
 
         if item[0] == 'noop':
-            image =  append_pixel(X, cycle, image)
             cycle += 1
             sig_strength = cycle_signal_strength(cycle, X, sig_strength)
 
         if item[0] == 'addx':
-            image =  append_pixel(X, cycle, image) #0
             cycle += 1 #1
             sig_strength = cycle_signal_strength(cycle, X, sig_strength)
 
