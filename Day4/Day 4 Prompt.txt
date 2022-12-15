@@ -1,0 +1,42 @@
+Day 4 Prompt:
+---
+"please write a python program to solve the following problem:"<Day 4 prompt>
+the first program I recieved did not include a split for ',' so it failed on the input.
+ChatGPT confidently said it would process the input and produce the right answer.
+---
+"that program gave me the following error: <python terminal error>"
+The program now parses the input but the counter loop is not correct.
+---
+"That is incorrect. That program produces a count of 29 instead of 2"
+I got the same program back.
+---
+"the range() function on both range(len(ranges)) should to increment by 2"
+that loop is still wrong.
+---
+"there should only be one loop function for 'count' comparing i with i+i and incrementing by 2 each time"
+the program now works
+---
+Part 2:
+"please write a python program to solve the following problem:"<Day 4 prompt part 2>
+I got a similar program to part 1 but it made the same mistakes it did the first time around on the range function.
+---
+"there should only be one loop function for 'overlaps' comparing i with i+i and incrementing by 2 each time"
+after this I went back and forth with it awhile trying to get it to correct the overlap range loop. It's pretty off track at this point.
+---
+restarting part 2:"please write a python program to solve the following problem: <Day 4 prompt part 2 with part 1 taken out>Pairs of ranges are important here: for the totals, please create a single iterator that increase by 2 each pass"
+it got the loop right but it failed to parse the string right.
+---
+update solution to also remove newline characters from the input_string
+---
+Please fix the following error: line 16, in main
+    pair2 = pairs[i + 1]
+IndexError: list index out of range
+---
+the pairs line generation is not right. I need pairs to look like the following given the example input: input = '2-4,6-8\n2-3,4-5\n'... becomes: pairs = [(2,4),(6,8),(2,3),(4,5)...]
+---
+it gave me a pairs line that doesn't parse the input the way it says it does, so I respond with:
+bro it don't
+chatGPT doesn't understand that.
+---
+that formula for pairs does not correctly generate the list of pairs from the input string. That formula does not handle '\n'
+chatGPT crashes.

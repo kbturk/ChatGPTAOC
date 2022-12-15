@@ -11,7 +11,7 @@ def elevation(c: str) -> int:
         return 26
     return ord(c) - ord('a') + 1
 
-def valid_moves(curr: Point, forest: Forest) -> List[Point]:
+def valid_moves(curr: Point, forest: Forest, reverse = False) -> List[Point]:
     up = (curr[0], curr[1] - 1)
     down = (curr[0], curr[1] + 1)
     left = (curr[0] - 1, curr[1])
@@ -19,23 +19,66 @@ def valid_moves(curr: Point, forest: Forest) -> List[Point]:
 
     valid_move: List[Point] = []
 
-    if up in forest.keys():
-        if forest[up] - forest[curr] <= 1:
-            valid_move.append(up)
+    if not reverse:
+        if up in forest.keys():
+            if forest[up] - forest[curr] <= 1:
+                valid_move.append(up)
 
-    if down in forest.keys():
-        if forest[down] - forest[curr] <= 1:
-            valid_move.append(down)
+        if down in forest.keys():
+            if forest[down] - forest[curr] <= 1:
+                valid_move.append(down)
 
-    if left in forest.keys():
-        if forest[left] - forest[curr] <= 1:
-            valid_move.append(left)
+        if left in forest.keys():
+            if forest[left] - forest[curr] <= 1:
+                valid_move.append(left)
 
-    if right in forest.keys():
-        if forest[right] - forest[curr] <= 1:
-                valid_move.append(right)
+        if right in forest.keys():
+            if forest[right] - forest[curr] <= 1:
+                    valid_move.append(right)
 
-    return valid_move    
+    if reverse: #TODO
+        if up in forest.keys():
+            if forest[up] - forest[curr] >= 1:
+                valid_move.append(up)
+
+        if down in forest.keys():
+            if forest[down] - forest[curr] >= 1:
+                valid_move.append(down)
+
+        if left in forest.keys():
+            if forest[left] - forest[curr] >= 1:
+                valid_move.append(left)
+
+        if right in forest.keys():
+            if forest[right] - forest[curr] >= 1:
+                    valid_move.append(right)
+    return valid_move
+
+def reverse_bfs(curr: Point, start: Point, forest: Forest) -> Optional[int]:
+    q: queue.Queue[Tuple[Point,int]] = queue.Queue()
+    q.put((curr, 0))
+
+    seen: Set[Tuple[int,int]] = set()
+
+    while curr != start and not q.empty():
+        curr, count = q.get()
+
+        if curr in seen:
+            continue
+        moves = valid_moves(curr, forest, True)
+        #print(f'{i}: {curr}, moves: {moves}, seen: {seen}')
+        for item in moves:
+            if item not in seen:
+                q.put((item, count + 1))
+
+        seen.add(curr)
+        if curr == start:
+            return curr, count
+        
+        # print(', '.join(str(p) for p in q))
+        #print(f'after evaluating items in round {i}: q is :{q.qsize()}, and {curr, count}')
+
+    return None
 
 def bfs(curr: Point, end: Point, forest: Forest) -> Optional[int]:
     q: queue.Queue[Tuple[Point,int]] = queue.Queue()
@@ -82,7 +125,9 @@ def main() -> int:
     i = 0
 
     _, steps = bfs(start, end, forest)
+    curr, steps2 = reverse_bfs(end, start, forest)
     print(steps)
+    print(f'reverse: {curr, steps2}')
     best_start = (start, steps)
     for k, v in forest.items():
         if v == 1:
